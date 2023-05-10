@@ -9,6 +9,7 @@ const initialState = {
 
   chiTietPhongVe: new ThongTinLichChieu(),
   danhSachGheDangDat: [],
+  danhSachGheKhachDat: [],
   tabActive: '1'
 }
 
@@ -42,6 +43,16 @@ export const QuanLyDatVeReducer = (state = initialState, action) => {
       return { ...state };
     }
 
+    case 'CHANGE_TAB_ACTIVE': {
+      console.log('action', action)
+      state.tabActive = action.number;
+      return { ...state };
+    }
+
+    case 'DAT_GHE': {
+      state.danhSachGheKhachDat = action.arrGheKhachDat;
+      return { ...state }
+    }
 
     default:
       return { ...state }

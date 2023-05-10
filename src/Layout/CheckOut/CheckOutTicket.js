@@ -14,6 +14,7 @@ import { ThongTinDatVe } from '../../_core/ThongTinDatVe';
 import { layThongTinNguoiDungAction } from '../../redux/actions/quanLyNguoiDungAction';
 import Swal from 'sweetalert2';
 import { Skeleton } from 'antd';
+import { TOKEN, USER_LOGIN } from '../../ultis/config';
 
 
 function CheckOutTicket(props) {
@@ -115,10 +116,10 @@ function CheckOutTicket(props) {
               <tbody className="bg-white divide-y divide-gray-200">
                 <tr>
                   <td><button className="ghe text-center"> <CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> </button> </td>
-                  <td><button className="ghe gheDangDat text-center"> <CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /></button> </td>
+                  <td><button className="ghe gheDangDat text-center"> <UserOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /></button> </td>
                   <td><button className="ghe gheVip text-center"><CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /></button> </td>
-                  <td><button className="ghe gheDaDat text-center"> <UserOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> </button> </td>
-                  <td><button className="ghe gheDaDuocDat text-center"> <CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> </button> </td>
+                  <td><button className="ghe gheDaDat text-center"> <CloseOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> </button> </td>
+                  <td><button className="ghe gheDaDuocDat text-center"> <UserOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> </button> </td>
                 </tr>
               </tbody>
             </table>
@@ -217,6 +218,7 @@ function KetQuaDatVe(props) {
   const navigate = useNavigate();
 
 
+
   console.log("Thông tin người dùng", thongTinNguoiDung);
   useEffect(() => {
     const action = layThongTinNguoiDungAction();
@@ -253,7 +255,7 @@ function KetQuaDatVe(props) {
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4  text-purple-600 ">Lịch sử đặt vé khách hàng</h1>
             <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Hãy xem thông tin địa và thời gian để xem phim vui vẻ bạn nhé !</p>
             <div>
-              <button onClick={()=>navigate("/")} className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" style={{ width: '60px', height: '60px' }} ><HomeOutlined style={{ fontWeight: 'bold' }} /></button>
+              <button onClick={() => navigate("/")} className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" style={{ width: '60px', height: '60px' }} ><HomeOutlined style={{ fontWeight: 'bold' }} /></button>
             </div>
           </div>
           <div className="flex flex-wrap -m-2">
@@ -284,9 +286,7 @@ function KetQuaDatVe(props) {
 }
 
 
-const onChange = (key) => {
-  console.log(key);
-};
+
 const items = [
   {
     key: '1',
@@ -303,6 +303,29 @@ const items = [
 function Demo(props) {
   const { tabActive } = useSelector(state => state.QuanLyDatVeReducer);
   console.log("TabActive là ", tabActive);
+  const dispatch = useDispatch();
+  const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+    const action = layThongTinNguoiDungAction();
+    dispatch(action)
+  }, [])
+  const operations = <Fragment>
+    {!_.isEmpty(userLogin) ? <Fragment> <button onClick={() => {
+
+
+
+    }}> <div style={{ width: 50, height: 50, display:'flex', justifyItems:'end',padding:'10px 10px 10px 18px' }} className="text-2xl ml-5 rounded-full bg-red-200 text-center">{userLogin.taiKhoan.substr(0, 1)}</div></button> <button onClick={() => {
+      localStorage.removeItem(USER_LOGIN);
+      localStorage.removeItem(TOKEN);
+      navigate('/home');
+      window.location.reload();
+    }} style={{marginLeft:'10px',marginRight:'17px', fontSize:'18px',paddingBottom:'17px',color:'#1677ff',}} >ĐĂNG XUẤT</button> </Fragment> : ''}
+
+
+  </Fragment>
 
 
 
@@ -310,7 +333,13 @@ function Demo(props) {
     <div>
 
 
-      <Tabs defaultActiveKey="1" activeKey={tabActive} items={items} onChange={onChange} tabBarStyle={{ width: '60vh', marginLeft: '50px', marginTop: '20px' }} />;
+      <Tabs tabBarExtraContent={operations}  defaultActiveKey="1" activeKey={tabActive} items={items} onChange={(key) => {
+        dispatch({
+          type: 'CHANGE_TAB_ACTIVE',
+          number: key
+        })
+
+      }} tabBarStyle={{ width: '70vw', marginLeft: '20px', marginTop: '20px' }} />;
 
     </div>
 
