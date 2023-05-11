@@ -6,7 +6,7 @@ import { Tabs } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { datVeAction, layChiTietPhongVeAction } from '../../redux/actions/QuanLyDatVeAction';
-import { CheckOutlined, CloseOutlined, UserOutlined, HomeOutlined } from '@ant-design/icons';
+import { CheckOutlined, CloseOutlined, UserOutlined } from '@ant-design/icons';
 import { CHUYEN_TAB, DAT_VE } from '../../redux/actions/types/QuanLyDatGhe'
 import _ from 'lodash';
 import moment from 'moment';
@@ -14,7 +14,6 @@ import { ThongTinDatVe } from '../../_core/ThongTinDatVe';
 import { layThongTinNguoiDungAction } from '../../redux/actions/quanLyNguoiDungAction';
 import Swal from 'sweetalert2';
 import { Skeleton } from 'antd';
-import { TOKEN, USER_LOGIN } from '../../ultis/config';
 
 
 function CheckOutTicket(props) {
@@ -22,13 +21,13 @@ function CheckOutTicket(props) {
   const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
   const param = useParams();
 
-
-
+ 
 
 
   const { chiTietPhongVe, danhSachGheDangDat } = useSelector(state => state.QuanLyDatVeReducer);
 
   const dispatch = useDispatch();
+  
 
   useEffect(() => {
 
@@ -98,7 +97,7 @@ function CheckOutTicket(props) {
               <h3 className="mt-3 text-black">Màn hình</h3>
             </div>
             <div>
-              {renderSeats()}
+               {renderSeats()}
             </div>
 
           </div>
@@ -256,7 +255,7 @@ function KetQuaDatVe(props) {
             
           </div>
           <div className="flex flex-wrap -m-2">
-            {thongTinNguoiDung.thongTinDatVe && renderTicket()}
+            { renderTicket()}
             {/* <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
                     <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
                         <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://picsum.photos/200/200" />
@@ -266,12 +265,7 @@ function KetQuaDatVe(props) {
                         </div>
                     </div>
                 </div> */}
-            {!thongTinNguoiDung.thongTinDatVe && <Skeleton
-              avatar
-              paragraph={{
-                rows: 4,
-              }}
-            />}
+           
 
           </div>
         </div>

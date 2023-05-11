@@ -19,6 +19,8 @@ import CheckOutTicket from './Layout/CheckOut/CheckOutTicket';
 import RegisterEdit from './pages/Register/RegisterEdit';
 import LoginEdit from './pages/Login/LoginEdit';
 import Profile from './Profile_Page/Profile';
+import MyLoader from './Loader/Loader';
+import HeadBodyGrid from './Loader/Loader';
 
 
 
@@ -47,6 +49,7 @@ function App() {
 
         <Route path="*" element={<NoPage />} />
         <Route path='/profile' element={<Profile />} />
+        
       </Routes>
 
     </BrowserRouter>

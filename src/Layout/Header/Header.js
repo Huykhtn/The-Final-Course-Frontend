@@ -37,9 +37,9 @@ export default function Header() {
 
         return <Fragment> <button onClick={() => {
 
+              navigate("/profile");
 
-
-        }}> <div style={{ width: 50, height: 50, display:'flex', justifyItems:'end',padding:'10px 10px 10px 18px',marginRight:'20px' }} className="text-2xl ml-5 rounded-full bg-red-200 text-center">{userLogin.taiKhoan.substr(0, 1)}</div></button> 
+        }}> <div style={{ width: 50, height: 50, display:'flex', justifyItems:'end',padding:'10px 10px 10px 18px',marginRight:'20px' }} className="text-2xl ml-5 rounded-full bg-red-200 text-center text-transform: uppercase" >{userLogin.taiKhoan.substr(0, 1)}</div></button> 
             <button onClick={() => {
                 localStorage.removeItem(USER_LOGIN);
                 localStorage.removeItem(TOKEN);
@@ -53,8 +53,8 @@ export default function Header() {
     
     return (
 
-        <header className ={` p-4 bg-coolGray-100 text-coolGray-800 ${colorChange ? '': 'bg-opacity-40'} bg-black text-white fixed w-full z-10`} >
-        <div className="container flex justify-between h-16 mx-auto">
+        <header className ={` p-5 bg-coolGray-100 text-coolGray-800 ${colorChange ? '': 'bg-opacity-40'} bg-black text-white fixed w-full z-10`} >
+        <div className="container flex justify-between h-16 ">
             <a href="#" aria-label="Back to homepage" className="flex items-center p-2">
                 <img src={logo} width={200} height={100} alt="GreenAcademy" />
             </a>
