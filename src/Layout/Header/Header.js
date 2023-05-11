@@ -36,8 +36,10 @@ export default function Header() {
 
 
         return <Fragment> <button onClick={() => {
-            
-        }} className="self-center px-8 py-3 rounded">Hello ! {userLogin.taiKhoan}</button>
+
+
+
+        }}> <div style={{ width: 50, height: 50, display:'flex', justifyItems:'end',padding:'10px 10px 10px 18px',marginRight:'20px' }} className="text-2xl ml-5 rounded-full bg-red-200 text-center">{userLogin.taiKhoan.substr(0, 1)}</div></button> 
             <button onClick={() => {
                 localStorage.removeItem(USER_LOGIN);
                 localStorage.removeItem(TOKEN);

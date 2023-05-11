@@ -82,7 +82,7 @@ function CheckOutTicket(props) {
 
 
   return (
-    <div className='min-h-screen mt-5' >
+    <div className=' mt-5 ' >
 
       <div className='grid grid-cols-12'>
         <div className='col-span-9'>
@@ -215,8 +215,7 @@ function KetQuaDatVe(props) {
   const dispatch = useDispatch();
   const { thongTinNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
   const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
-  const navigate = useNavigate();
-
+  
 
 
   console.log("Thông tin người dùng", thongTinNguoiDung);
@@ -250,13 +249,11 @@ function KetQuaDatVe(props) {
     <div className="p-5">
 
       <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="container px-5 py-12 mx-auto">
           <div className="flex flex-col text-center w-full mb-20">
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4  text-purple-600 ">Lịch sử đặt vé khách hàng</h1>
             <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Hãy xem thông tin địa và thời gian để xem phim vui vẻ bạn nhé !</p>
-            <div>
-              <button onClick={() => navigate("/")} className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" style={{ width: '60px', height: '60px' }} ><HomeOutlined style={{ fontWeight: 'bold' }} /></button>
-            </div>
+            
           </div>
           <div className="flex flex-wrap -m-2">
             {thongTinNguoiDung.thongTinDatVe && renderTicket()}
@@ -312,28 +309,15 @@ function Demo(props) {
     const action = layThongTinNguoiDungAction();
     dispatch(action)
   }, [])
-  const operations = <Fragment>
-    {!_.isEmpty(userLogin) ? <Fragment> <button onClick={() => {
-
-
-
-    }}> <div style={{ width: 50, height: 50, display:'flex', justifyItems:'end',padding:'10px 10px 10px 18px' }} className="text-2xl ml-5 rounded-full bg-red-200 text-center">{userLogin.taiKhoan.substr(0, 1)}</div></button> <button onClick={() => {
-      localStorage.removeItem(USER_LOGIN);
-      localStorage.removeItem(TOKEN);
-      navigate('/home');
-      window.location.reload();
-    }} style={{marginLeft:'10px',marginRight:'17px', fontSize:'18px',paddingBottom:'17px',color:'#1677ff',}} >ĐĂNG XUẤT</button> </Fragment> : ''}
-
-
-  </Fragment>
+ 
 
 
 
   return (
-    <div>
+    <div style={{paddingTop:'100px'}}>
 
 
-      <Tabs tabBarExtraContent={operations}  defaultActiveKey="1" activeKey={tabActive} items={items} onChange={(key) => {
+      <Tabs   defaultActiveKey="1" activeKey={tabActive} items={items} onChange={(key) => {
         dispatch({
           type: 'CHANGE_TAB_ACTIVE',
           number: key

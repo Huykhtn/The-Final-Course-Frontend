@@ -35,7 +35,7 @@ function HomePage(props) {
       <HomeBanner/>
       <div>
         <section className="text-gray-600 body-font" >
-          <div className="container px-5 py-24 mx-auto " >
+          <div className="container px-5 py-24 w-screen mx-2 "  >
 
             <MultipleRowSlick arrFilm={arrFilm} />
             {/* <div className="flex flex-wrap  " style={{ justifyContent: 'center' }}>

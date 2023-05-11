@@ -73,8 +73,8 @@ export default function Detail(props) {
           </div>
 
         </div>
-        <div className="mt-10 ml-72 w-2/3 container bg-white px-5 py-5">
-          <Tabs defaultActiveKey="1" centered>
+        <div className="mt-10 ml-72 w-3/4 container bg-white px-5 py-5">
+          <Tabs size='large' defaultActiveKey="1" centered>
             <TabPane tab="Lịch chiếu" key="1" style={{ minHeight: 300 }}>
               <div >
                 <Tabs tabPosition={'left'} >

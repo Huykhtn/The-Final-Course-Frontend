@@ -28,7 +28,7 @@ function SamplePrevArrow(props) {
     <div
       className={`${className} ${styleSlick['slick-prev']}`}
 
-      style={{ ...style, display: "block", left: '-50px' }}
+      style={{ ...style, display: "block", left: '-40px' }}
       onClick={onClick}
     >
     </div>
@@ -58,7 +58,7 @@ function MultipleRowSlick(props) {
     className: "center variable-width",
     centerMode: true,
     infinite: true,
-    centerPadding: "60px",
+    centerPadding: "40px",
     slidesToShow: 2,
     speed: 500,
     rows: 1,

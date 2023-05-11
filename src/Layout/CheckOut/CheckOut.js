@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Navigate, Outlet, redirect, useNavigate } from 'react-router-dom'
 import { USER_LOGIN } from '../../ultis/config'
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 
 function CheckOutTemplate(props) {
@@ -12,7 +14,13 @@ function CheckOutTemplate(props) {
      else {
         return (
             <div>
-                <Outlet/>
+                <Header/>
+              
+               <Outlet/>
+               
+                
+
+                <Footer/>
             </div>
         );
     }
