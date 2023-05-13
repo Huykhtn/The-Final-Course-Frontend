@@ -57,15 +57,7 @@ function LichSuDatVe(props) {
           </div>
           <div className="flex flex-wrap -m-2">
             {renderTicket()}
-            {/* <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
-                    <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                        <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://picsum.photos/200/200" />
-                        <div className="flex-grow">
-                            <h2 className="text-gray-900 title-font font-medium">Lật mặt 48h</h2>
-                            <p className="text-gray-500">10:20 Rạp 5, Hệ thống rạp cinestar bhd </p>
-                        </div>
-                    </div>
-                </div> */}
+           
 
 
           </div>
@@ -90,7 +82,7 @@ function ThongTinUser(props) {
           </div>
           <div className="flex flex-wrap -m-2">
 
-            <div className="p-2 w-1/2 w-full">
+            <div className="p-2 w-1/3 w-full">
               <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
                
                 <div className="flex-grow">
@@ -102,7 +94,7 @@ function ThongTinUser(props) {
               </div>
 
             </div>
-            <div className="p-2 w-1/2 w-full">
+            <div className="p-2 w-1/3 w-full">
               <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg" style={{position:'relative'}}>
                
                 <div className="flex-grow">
@@ -163,7 +155,7 @@ function Profile() {
     <div className=" min-h-screen my-2 mx-2" style={{paddingTop:'100px'}}>
 
 
-      <Tabs type="card" tabBarStyle={{ marginLeft: '20px' }} defaultActiveKey="1" items={items} onChange={onChange} size="large" />;
+      <Tabs type="card" tabBarStyle={{ marginLeft: '20px' }} defaultActiveKey="1" items={items} onChange={onChange} size="large" />
 
 
 
